@@ -1,13 +1,12 @@
 import CGVirtualDisplayPrivate
 import CoreGraphics
 import Foundation
-import VirtualScreenCore
 
-enum VirtualDisplayError: Error, CustomStringConvertible {
+public enum VirtualDisplayError: Error, CustomStringConvertible {
     case creationFailed
     case settingsRejected
 
-    var description: String {
+    public var description: String {
         switch self {
         case .creationFailed: "CGVirtualDisplay could not be created"
         case .settingsRejected: "CGVirtualDisplay rejected the display modes"
@@ -16,7 +15,7 @@ enum VirtualDisplayError: Error, CustomStringConvertible {
 }
 
 /// Owns a `CGVirtualDisplay`. The display disappears as soon as this object is released.
-final class VirtualDisplay {
+public final class VirtualDisplay {
     // A fixed identity lets macOS remember the arrangement between launches.
     private static let name = "Virtual Screen"
     private static let vendorID: UInt32 = 0x5653
@@ -27,9 +26,10 @@ final class VirtualDisplay {
 
     private let display: CGVirtualDisplay
 
-    var id: CGDirectDisplayID { display.displayID }
+    public var id: CGDirectDisplayID { display.displayID }
 
-    init(plan: ModePlan, onTermination: @escaping () -> Void) throws(VirtualDisplayError) {
+    /// `onTermination` runs on the main queue when the system removes the display.
+    public init(plan: ModePlan, onTermination: @escaping () -> Void) throws(VirtualDisplayError) {
         let descriptor = CGVirtualDisplayDescriptor()
         descriptor.queue = .main
         descriptor.name = Self.name

@@ -1,11 +1,10 @@
 import CoreGraphics
-import VirtualScreenCore
 
-enum DisplayConfigurationError: Error, CustomStringConvertible {
+public enum DisplayConfigurationError: Error, CustomStringConvertible {
     case modeNotFound(ModePlan)
     case configurationFailed(CGError)
 
-    var description: String {
+    public var description: String {
         switch self {
         case .modeNotFound(let plan): "display mode \(plan) is not available"
         case .configurationFailed(let error): "display configuration failed with CGError \(error.rawValue)"
@@ -13,18 +12,17 @@ enum DisplayConfigurationError: Error, CustomStringConvertible {
     }
 }
 
-enum DisplayConfigurator {
-    static func waitUntilOnline(_ id: CGDirectDisplayID, timeout: Duration) -> Bool {
+public enum DisplayConfigurator {
+    public static func waitUntilOnline(_ id: CGDirectDisplayID, timeout: Duration) async -> Bool {
         let deadline = ContinuousClock.now + timeout
         while !onlineDisplays().contains(id) {
             guard ContinuousClock.now < deadline else { return false }
-            // Runs the main run loop so the display's dispatch queue keeps working while we wait.
-            CFRunLoopRunInMode(.defaultMode, 0.1, false)
+            try? await Task.sleep(for: .milliseconds(100))
         }
         return true
     }
 
-    static func activateMode(on id: CGDirectDisplayID, plan: ModePlan) throws(DisplayConfigurationError) {
+    public static func activateMode(on id: CGDirectDisplayID, plan: ModePlan) throws(DisplayConfigurationError) {
         if let current = CGDisplayCopyDisplayMode(id), matches(current, plan) { return }
 
         let options = [kCGDisplayShowDuplicateLowResolutionModes: true] as CFDictionary
@@ -38,7 +36,7 @@ enum DisplayConfigurator {
 
     /// The main display is the one at the global origin, so shift every display
     /// by the virtual display's offset to keep the arrangement intact.
-    static func makeMain(_ id: CGDirectDisplayID) throws(DisplayConfigurationError) {
+    public static func makeMain(_ id: CGDirectDisplayID) throws(DisplayConfigurationError) {
         let offset = CGDisplayBounds(id).origin
         guard offset != .zero else { return }
 
@@ -51,9 +49,17 @@ enum DisplayConfigurator {
         }
     }
 
-    static func currentModeDescription(_ id: CGDirectDisplayID) -> String {
-        guard let mode = CGDisplayCopyDisplayMode(id) else { return "unknown mode" }
-        return "\(mode.width)x\(mode.height) (\(mode.pixelWidth)x\(mode.pixelHeight) px)"
+    public static func isMain(_ id: CGDirectDisplayID) -> Bool {
+        CGDisplayIsMain(id) != 0
+    }
+
+    /// The display's current size in points and in pixels.
+    public static func currentMode(of id: CGDirectDisplayID) -> (points: Resolution, pixels: Resolution)? {
+        guard let mode = CGDisplayCopyDisplayMode(id) else { return nil }
+        return (
+            Resolution(width: mode.width, height: mode.height),
+            Resolution(width: mode.pixelWidth, height: mode.pixelHeight)
+        )
     }
 
     private static func matches(_ mode: CGDisplayMode, _ plan: ModePlan) -> Bool {

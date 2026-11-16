@@ -2,20 +2,19 @@
 import PackageDescription
 
 let package = Package(
-    name: "VirtualScreen",
+    name: "VirtualScreenCore",
     platforms: [.macOS(.v14)],
     products: [
-        .executable(name: "virtual-screen", targets: ["VirtualScreen"]),
+        .library(name: "VirtualScreenCore", targets: ["VirtualScreenCore"]),
     ],
     targets: [
         .target(
             name: "CGVirtualDisplayPrivate",
             linkerSettings: [.linkedFramework("CoreGraphics")]
         ),
-        .target(name: "VirtualScreenCore"),
-        .executableTarget(
-            name: "VirtualScreen",
-            dependencies: ["CGVirtualDisplayPrivate", "VirtualScreenCore"]
+        .target(
+            name: "VirtualScreenCore",
+            dependencies: ["CGVirtualDisplayPrivate"]
         ),
         .testTarget(
             name: "VirtualScreenCoreTests",
