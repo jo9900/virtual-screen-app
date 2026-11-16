@@ -14,7 +14,14 @@ monitor. Targets the Mac App Store (sandboxed). Design: `docs/superpowers/specs/
 - `App/Localizable.xcstrings` — every user-facing string, in `en`, `ja`, `zh-Hans`.
 - `Packages/VirtualScreenCore` — local package: private API header (`CGVirtualDisplayPrivate`),
   resolutions, `ModePlan`, `DisplaySelection`, `VirtualDisplay`, `DisplayConfigurator`. Unit tested.
-- `AppStore/` — store listing text and screenshots.
+- `AppStore/` — listing text per language (`metadata/`), screenshots (`screenshots/`, regenerate
+  with `swift AppStore/screenshots/compose.swift` from window-only captures in `raw/`), export
+  options, and `CHECKLIST.md` for App Store Connect.
+- `scripts/release.sh export|upload` — tests, archives (team `54BTJHJKUU`, automatic signing) and
+  exports or uploads to App Store Connect. Bump `CURRENT_PROJECT_VERSION` in `project.yml` first.
+
+Screenshots must never show the desktop or personal data: capture single windows with
+`screencapture -l <windowID>`, never the full screen or System Settings (it shows the account name).
 
 ## CGVirtualDisplay behavior (verified on macOS 27.2)
 
