@@ -8,7 +8,8 @@ struct LoginItem {
 
     var isEnabled: Bool { SMAppService.mainApp.status == .enabled }
     var needsApproval: Bool { SMAppService.mainApp.status == .requiresApproval }
-    var isRegistered: Bool { SMAppService.mainApp.status != .notRegistered }
+    // An app that never registered can report `.notFound` as well as `.notRegistered`.
+    var isRegistered: Bool { isEnabled || needsApproval }
 
     func setEnabled(_ enabled: Bool) {
         do {
