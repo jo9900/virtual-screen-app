@@ -1,0 +1,53 @@
+{
+  "en": [
+    {
+      "image": "menu",
+      "headline": "A high‑resolution screen\nfor your headless Mac",
+      "subhead": "Remote desktop on a Mac without a monitor is usually limited to 1920 × 1080. Virtual Screen gives it a 1440p or 4K display."
+    },
+    {
+      "image": "menu4k",
+      "headline": "1080p to 4K, right from the menu bar",
+      "subhead": "Switch resolution and HiDPI in one click. The virtual screen becomes your main display."
+    },
+    {
+      "image": "menulogin",
+      "headline": "Ready after every restart",
+      "subhead": "Turn on Start at Login and Virtual Screen remembers your settings. No drivers, nothing to configure."
+    }
+  ],
+  "ja": [
+    {
+      "image": "menu",
+      "headline": "モニターのないMacに、\n高解像度の画面を",
+      "subhead": "モニターを接続していないMacをリモート操作すると、\n画面は通常1920×1080に制限されます。\nVirtual Screenなら1440pや4Kの画面が使えます。"
+    },
+    {
+      "image": "menu4k",
+      "headline": "1080pから4Kまで、\nメニューバーから",
+      "subhead": "解像度とHiDPIをワンクリックで切り替え。\n仮想ディスプレイがメインディスプレイになります。"
+    },
+    {
+      "image": "menulogin",
+      "headline": "再起動しても、\nすぐに使える",
+      "subhead": "「ログイン時に起動」をオンにすれば、\n設定はそのまま。ドライバも面倒な設定も不要です。"
+    }
+  ],
+  "zh-Hans": [
+    {
+      "image": "menu",
+      "headline": "让没有显示器的 Mac\n拥有高分辨率屏幕",
+      "subhead": "远程控制没接显示器的 Mac 时，\n画面通常只有 1920 × 1080。\nVirtual Screen 让它用上 1440p 甚至 4K。"
+    },
+    {
+      "image": "menu4k",
+      "headline": "从 1080p 到 4K，\n菜单栏一键切换",
+      "subhead": "一键切换分辨率和 HiDPI，\n虚拟屏幕自动成为主显示器。"
+    },
+    {
+      "image": "menulogin",
+      "headline": "每次重启，随时可用",
+      "subhead": "打开“登录时启动”后，设置会被记住。\n无需驱动，无需复杂配置。"
+    }
+  ]
+}
