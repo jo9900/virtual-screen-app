@@ -23,7 +23,9 @@ The plain name "Virtual Screen" is taken by another developer.
 
 1. **App Privacy → Publish.** Publishing attests that the answers are accurate, so it is the
    owner's click.
-2. **App Review Information → contact** first name, last name, phone, email.
+2. **App Review Information → contact** first name, last name, phone, email, and uncheck
+   **Sign-in required** (the app has no account). The page cannot be saved until the contact
+   fields are filled.
 3. **App Compliance → Digital Services Act.** The account is declared a non-trader for this app;
    selling a paid app in the EU may make you a trader, which shows your contact details on the
    product page. Legal call.
