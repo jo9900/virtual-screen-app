@@ -17,20 +17,19 @@ The plain name "Virtual Screen" is taken by another developer.
 - App Privacy: privacy policy URL in all three languages; "Data Not Collected" answered.
 - Version 1.0.0, all three languages: promotional text, description, keywords, support URL,
   three screenshots each. Copyright `2026 YUAN ZHENG`. Review notes from `metadata/en-US.md`.
+- App Review Information: contact details copied from the owner's ClipNest listing; "Sign-in
+  required" unchecked (the app has no account).
 - Release option left at the default: release automatically after approval.
 
 ## Left for the owner
 
 1. **App Privacy → Publish.** Publishing attests that the answers are accurate, so it is the
    owner's click.
-2. **App Review Information → contact** first name, last name, phone, email, and uncheck
-   **Sign-in required** (the app has no account). The page cannot be saved until the contact
-   fields are filled.
-3. **App Compliance → Digital Services Act.** The account is declared a non-trader for this app;
+2. **App Compliance → Digital Services Act.** The account is declared a non-trader for this app;
    selling a paid app in the EU may make you a trader, which shows your contact details on the
    product page. Legal call.
-4. Optionally change the release option (manual release, or a date).
-5. **Add for Review / Submit for Review.**
+3. Optionally change the release option (manual release, or a date).
+4. **Add for Review / Submit for Review.**
 
 ## Known risk
 
