@@ -3,6 +3,13 @@
 macOS menu bar app that keeps a `CGVirtualDisplay` alive as the main display, for Macs without a
 monitor. Targets the Mac App Store (sandboxed). Design: `docs/superpowers/specs/`.
 
+## Repositories
+
+- `origin` is the private repo `jo9900/virtual-screen-app`. All work is pushed there.
+- The public repo `jo9900/virtual-screen` holds only the original CLI and is frozen. Never push to
+  it; it is not a remote here.
+- The public repo `jo9900/virtual-screen-support` hosts the App Store support and privacy pages.
+
 ## Layout
 
 - `project.yml` — XcodeGen spec. Run `xcodegen generate` after changing it or adding files; the

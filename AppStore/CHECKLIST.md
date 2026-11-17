@@ -35,8 +35,6 @@ passed Apple's automated processing; the review notes state the class openly. No
 
 ## Also consider
 
-- The source repo `jo9900/virtual-screen` is public and still has the original CLI. The app code is
-  committed locally only. Making the repo private before pushing keeps buyers from building it.
 - Tested on macOS 27.2 with Apple silicon only. The minimum is macOS 14 and the build includes
   Intel; neither older macOS nor Intel has been tried.
 
