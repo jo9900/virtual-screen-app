@@ -16,7 +16,7 @@ The plain name "Virtual Screen" is taken by another developer.
   security assessment report and an AIGC declaration).
 - App Privacy: privacy policy URL in all three languages; "Data Not Collected" answered.
 - Version 1.0.0, all three languages: promotional text, description, keywords, support URL,
-  three screenshots each. Copyright `2026 YUAN ZHENG`. Review notes from `metadata/en-US.md`.
+  three screenshots each. Copyright `2026 jo9900` (shown as "© 2026 jo9900", same as ClipNest). Review notes from `metadata/en-US.md`.
 - App Review Information: contact details copied from the owner's ClipNest listing; "Sign-in
   required" unchecked (the app has no account).
 - Digital Services Act: non-trader for this app (owner's decision).
