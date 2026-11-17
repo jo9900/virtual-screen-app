@@ -6,6 +6,9 @@ monitor. Targets the Mac App Store (sandboxed). Design: `docs/superpowers/specs/
 ## Repositories
 
 - `origin` is the private repo `jo9900/virtual-screen-app`. All work is pushed there.
+- Branches: develop on `dev`. `release` (the default branch) holds what shipped; merge `dev` into
+  it only when the owner asks, after a version is released. Release tags go on `release`. There is
+  no `main`. Never delete `dev` or `release`.
 - The public repo `jo9900/virtual-screen` holds only the original CLI and is frozen. Never push to
   it; it is not a remote here.
 - The public repo `jo9900/virtual-screen-support` hosts the App Store support and privacy pages.
