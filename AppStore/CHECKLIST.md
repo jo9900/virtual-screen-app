@@ -1,67 +1,42 @@
 # App Store submission checklist
 
-State on 2026-11-16 (prepared overnight; nothing has been submitted for review):
+App: **Virtual Screen – HiDPI Display** (Apple ID `6835454670`, bundle ID
+`io.github.jo9900.VirtualScreen`, SKU `io.github.jo9900.VirtualScreen`, primary language English (U.S.)).
+The plain name "Virtual Screen" is taken by another developer.
 
-- App record created through Xcode Organizer: **Virtual Screen – HiDPI Display**, Apple ID
-  `6835454670`, bundle ID `io.github.jo9900.VirtualScreen`, SKU `io.github.jo9900.VirtualScreen`,
-  primary language English (U.S.). The plain name "Virtual Screen" is taken by another developer.
-- Build **1.0.0 (1)** uploaded at 22:32 JST. Apple's processing result arrives by email and in
-  the build list; check it first (see "Known risk").
-- Support URL and privacy policy are live in the public repo
-  [jo9900/virtual-screen-support](https://github.com/jo9900/virtual-screen-support).
+## Done in App Store Connect (2026-11-17)
 
-Everything below is done in App Store Connect after logging in. Text to paste is in
-`AppStore/metadata/<language>.md`; screenshots are in `AppStore/screenshots/<language>/`.
+- Build **1.0.0 (1)**: processed, status "Ready to Submit"; selected on version 1.0.0.
+- App Information: names and subtitles for English (U.S.), Japanese, Chinese (Simplified)
+  (Japanese and Chinese use localized names because the English name was rejected as "already
+  used" in those localizations); category Utilities / Productivity; no third-party content;
+  age rating 4+.
+- Pricing: base country Japan, ¥1,000, prices for other territories set automatically.
+- Availability: 174 countries or regions; **China mainland excluded** (needs an ICP filing, a
+  security assessment report and an AIGC declaration).
+- App Privacy: privacy policy URL in all three languages; "Data Not Collected" answered.
+- Version 1.0.0, all three languages: promotional text, description, keywords, support URL,
+  three screenshots each. Copyright `2026 YUAN ZHENG`. Review notes from `metadata/en-US.md`.
+- Release option left at the default: release automatically after approval.
 
-## 1. Check the build
+## Left for the owner
 
-- Apps → Virtual Screen – HiDPI Display → TestFlight (or the build section of version 1.0).
-- If the email says **ITMS-90338: Non-public API usage**, the build was rejected for the private
-  API and none of the steps below will get it approved. Stop and decide how to proceed.
-
-## 2. App Information
-
-- Localizable information (English (U.S.)): Name, Subtitle from `en-US.md`.
-- Add localizations **Japanese** and **Chinese (Simplified)**; fill Name and Subtitle from `ja.md`
-  and `zh-Hans.md`.
-- Category: **Utilities** (secondary optional, e.g. Productivity).
-- Content Rights: does not contain, show, or access third-party content.
-- Age Rating: answer every question "None"/"No" → 4+.
-
-## 3. Pricing and Availability
-
-- Price: base country or region **Japan**, **¥1,000**; let App Store Connect set the other
-  territories' prices.
-- Availability: all countries or regions. China mainland may require an ICP Filing Number; if you
-  do not have one, deselect China mainland.
-- Paid apps need the **Paid Applications agreement** active (Business → Agreements, Tax, and
-  Banking).
-
-## 4. App Privacy
-
-- Privacy Policy URL: `https://github.com/jo9900/virtual-screen-support/blob/main/PRIVACY.md`
-- Data collection: **No, we do not collect data from this app.** Then Publish.
-
-## 5. macOS App → version 1.0 (for each of the three localizations)
-
-- Screenshots: drag the three files from `AppStore/screenshots/en/`, `ja/`, `zh-Hans/`
-  (2880 × 1800, no alpha). The English set is used where a localization has none.
-- Promotional Text, Description, Keywords from the metadata file.
-- Support URL: `https://github.com/jo9900/virtual-screen-support`
-- Build: select **1.0.0 (1)**.
-- Copyright: `2026 <your name>`.
-- App Review Information: your contact details; sign-in not required; Notes from the
-  "App Review notes" section of `en-US.md`.
-- Version Release: manual or automatic, your choice.
-- Save. **Submit for Review is yours to press.**
+1. **App Privacy → Publish.** Publishing attests that the answers are accurate, so it is the
+   owner's click.
+2. **App Review Information → contact** first name, last name, phone, email.
+3. **App Compliance → Digital Services Act.** The account is declared a non-trader for this app;
+   selling a paid app in the EU may make you a trader, which shows your contact details on the
+   product page. Legal call.
+4. Optionally change the release option (manual release, or a date).
+5. **Add for Review / Submit for Review.**
 
 ## Known risk
 
 `CGVirtualDisplay` is a private CoreGraphics class, and macOS has no public API for virtual
-displays. App Review Guideline 2.5.1 allows public APIs only, so a rejection is likely; the
-binary references the class directly and the review notes say so. Nothing hides it.
+displays. App Review Guideline 2.5.1 allows public APIs only, so a rejection is possible. The build
+passed Apple's automated processing; the review notes state the class openly. Nothing hides it.
 
-## Before submitting, also consider
+## Also consider
 
 - The source repo `jo9900/virtual-screen` is public and still has the original CLI. The app code is
   committed locally only. Making the repo private before pushing keeps buyers from building it.
@@ -71,4 +46,5 @@ binary references the class directly and the review notes say so. Nothing hides 
 ## Releasing an update
 
 Bump `CURRENT_PROJECT_VERSION` (and `MARKETING_VERSION` for a new version) in `project.yml`, then
-run `scripts/release.sh upload`.
+run `scripts/release.sh upload`. Text to paste is in `metadata/<language>.md`; screenshots are in
+`screenshots/<language>/`.

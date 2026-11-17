@@ -2,7 +2,7 @@
 
 ## 名称（30 字以内）
 
-Virtual Screen – HiDPI Display
+Virtual Screen – 虚拟显示器
 
 ## 副标题（30 字以内）
 
