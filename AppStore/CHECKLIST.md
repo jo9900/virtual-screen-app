@@ -22,12 +22,10 @@ The plain name "Virtual Screen" is taken by another developer.
 - Digital Services Act: non-trader for this app (owner's decision).
 - Release option left at the default: release automatically after approval.
 
-## Left for the owner
+## Submitted
 
-1. **App Privacy → Publish.** Publishing attests that the answers are accurate, so it is the
-   owner's click.
-2. Optionally change the release option (manual release, or a date).
-3. **Add for Review / Submit for Review.**
+The owner published App Privacy and submitted version 1.0.0 for review on 2026-11-17; status
+"Waiting for Review". It releases automatically once approved.
 
 ## Known risk
 
