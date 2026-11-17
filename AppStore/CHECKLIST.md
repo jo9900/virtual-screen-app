@@ -43,3 +43,9 @@ passed Apple's automated processing; the review notes state the class openly. No
 Bump `CURRENT_PROJECT_VERSION` (and `MARKETING_VERSION` for a new version) in `project.yml`, then
 run `scripts/release.sh upload`. Text to paste is in `metadata/<language>.md`; screenshots are in
 `screenshots/<language>/`.
+
+After App Review approves a version, tag the commit it was built from as `v<MARKETING_VERSION>`
+(annotated, e.g. `git tag -a v1.0.0 -m "1.0.0 (build 1)"`) and push the tag to `origin`.
+
+Pending: tag `v1.0.0` once 1.0.0 (build 1) is approved. Its app code (`App/`, `Packages/`,
+`project.yml`) is unchanged since `4acb806`; later commits touch only docs and scripts.
