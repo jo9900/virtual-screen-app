@@ -27,6 +27,14 @@ The plain name "Virtual Screen" is taken by another developer.
 The owner published App Privacy and submitted version 1.0.0 for review on 2026-11-17; status
 "Waiting for Review". It releases automatically once approved.
 
+## Result
+
+Rejected on 2026-11-18 by an automated binary scan under Guideline 2.5.1: the app references the
+non-public classes `CGVirtualDisplay`, `CGVirtualDisplayDescriptor`, `CGVirtualDisplayMode` and
+`CGVirtualDisplaySettings`. macOS has no public API for virtual displays, so the app is distributed
+as a notarized DMG on GitHub Releases instead (see `CLAUDE.md`, "Releasing"). This file and the
+rest of `AppStore/` are kept for reference.
+
 ## Known risk
 
 `CGVirtualDisplay` is a private CoreGraphics class, and macOS has no public API for virtual
@@ -37,16 +45,3 @@ passed Apple's automated processing; the review notes state the class openly. No
 
 - Tested on macOS 27.2 with Apple silicon only. The minimum is macOS 14 and the build includes
   Intel; neither older macOS nor Intel has been tried.
-
-## Releasing an update
-
-Bump `CURRENT_PROJECT_VERSION` (and `MARKETING_VERSION` for a new version) in `project.yml`, then
-run `scripts/release.sh upload`. Text to paste is in `metadata/<language>.md`; screenshots are in
-`screenshots/<language>/`.
-
-Build and submit from `dev`. After App Review approves a version and the owner asks, merge `dev`
-into `release`, tag it as `v<MARKETING_VERSION>` (annotated, e.g.
-`git tag -a v1.0.0 -m "1.0.0 (build 1)"`) and push `release` and the tag to `origin`.
-
-Pending: tag `v1.0.0` once 1.0.0 (build 1) is approved. Its app code (`App/`, `Packages/`,
-`project.yml`) is unchanged since `4acb806`; later commits touch only docs and scripts.

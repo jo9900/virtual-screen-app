@@ -1,11 +1,13 @@
 # Virtual Screen
 
 macOS menu bar app that keeps a `CGVirtualDisplay` alive as the main display, for Macs without a
-monitor. Targets the Mac App Store (sandboxed). Design: `docs/superpowers/specs/`.
+monitor. Sandboxed. Distributed as a notarized DMG on GitHub Releases; the Mac App Store rejected
+it (Guideline 2.5.1, private API). Design: `docs/superpowers/specs/`.
 
 ## Repositories
 
-- `origin` is the private repo `jo9900/virtual-screen-app`. All work is pushed there.
+- `origin` is the public repo `jo9900/virtual-screen-app` (no license: all rights reserved). All
+  work is pushed there.
 - Branches: develop on `dev`. `release` (the default branch) holds what shipped; merge `dev` into
   it only when the owner asks, after a version is released. Release tags go on `release`. There is
   no `main`. Never delete `dev` or `release`.
@@ -24,11 +26,22 @@ monitor. Targets the Mac App Store (sandboxed). Design: `docs/superpowers/specs/
 - `App/Localizable.xcstrings` — every user-facing string, in `en`, `ja`, `zh-Hans`.
 - `Packages/VirtualScreenCore` — local package: private API header (`CGVirtualDisplayPrivate`),
   resolutions, `ModePlan`, `DisplaySelection`, `VirtualDisplay`, `DisplayConfigurator`. Unit tested.
-- `AppStore/` — listing text per language (`metadata/`), screenshots (`screenshots/`, regenerate
-  with `swift AppStore/screenshots/compose.swift` from window-only captures in `raw/`), export
-  options, and `CHECKLIST.md` for App Store Connect.
-- `scripts/release.sh export|upload` — tests, archives (team `54BTJHJKUU`, automatic signing) and
-  exports or uploads to App Store Connect. Bump `CURRENT_PROJECT_VERSION` in `project.yml` first.
+- `AppStore/` — kept from the rejected App Store submission: listing text per language
+  (`metadata/`), screenshots (`screenshots/`, regenerate with
+  `swift AppStore/screenshots/compose.swift` from window-only captures in `raw/`), export options,
+  and `CHECKLIST.md`.
+- `scripts/release.sh dmg` — tests, archives (team `54BTJHJKUU`, automatic signing), signs with
+  Developer ID, waits for Apple's notarization and writes `.build/dmg/VirtualScreen-<version>.dmg`.
+  Signing and notarization use the Apple account signed in to Xcode; the Developer ID certificate
+  is cloud-managed, so the DMG itself is unsigned (the app inside is notarized and stapled).
+  `export|upload` are the old App Store paths.
+
+## Releasing
+
+Bump `MARKETING_VERSION` and `CURRENT_PROJECT_VERSION` in `project.yml` on `dev`, run
+`scripts/release.sh dmg`, and when the owner asks: merge `dev` into `release`, tag
+`v<MARKETING_VERSION>` on `release`, push both, and attach the DMG to a GitHub release
+(`gh release create v<version> .build/dmg/VirtualScreen-<version>.dmg`).
 
 Screenshots must never show the desktop or personal data: capture single windows with
 `screencapture -l <windowID>`, never the full screen or System Settings (it shows the account name).

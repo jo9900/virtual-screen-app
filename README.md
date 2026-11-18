@@ -14,6 +14,20 @@ display, and keeps it there.
 It uses `CGVirtualDisplay`, a private CoreGraphics class (the same one BetterDisplay and DeskPad
 use). The display exists only while the app runs.
 
+## Download
+
+1. Download `VirtualScreen-<version>.dmg` from the
+   [latest release](https://github.com/jo9900/virtual-screen-app/releases/latest).
+2. Open it and drag **Virtual Screen** to **Applications**.
+3. Open Virtual Screen from Applications. macOS asks once whether to open an app downloaded from
+   the internet; choose **Open**.
+
+The app is signed with Developer ID and notarized by Apple. It needs macOS 14 or later and runs on
+Apple silicon and Intel Macs. It is not on the Mac App Store, because the App Store does not allow
+private API.
+
+To update, download the new DMG and replace the app in Applications.
+
 ## Common commands
 
 ```sh
