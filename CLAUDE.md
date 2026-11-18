@@ -6,7 +6,7 @@ it (Guideline 2.5.1, private API). Design: `docs/superpowers/specs/`.
 
 ## Repositories
 
-- `origin` is the public repo `jo9900/virtual-screen-app` (no license: all rights reserved). All
+- `origin` is the public repo `jo9900/virtual-screen-app` (MIT license, `LICENSE`). All
   work is pushed there.
 - Branches: develop on `dev`. `release` (the default branch) holds what shipped; merge `dev` into
   it only when the owner asks, after a version is released. Release tags go on `release`. There is

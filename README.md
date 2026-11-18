@@ -82,3 +82,7 @@ open VirtualScreen.xcodeproj
 ```
 
 Tested on macOS 27.2 with an Apple M4 Pro Mac mini.
+
+## License
+
+[MIT](LICENSE)
